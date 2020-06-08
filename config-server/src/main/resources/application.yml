@@ -1,0 +1,61 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@gitee.com:yisen614/spring-config.git
+          ignore-local-ssh-settings: true
+          # 对应~/.ssh/known_hosts下的gitee.com记录的值
+          host-key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMuEoYdx6to5oxR60IWj8uoe1aI0X1fKOHWOtLqTg1tsLT1iFwXV5JmFjU46EzeMBV/6EmI1uaRI6HiEPtPtJHE=
+          # 对应算法
+          host-key-algorithm: ecdsa-sha2-nistp256
+          # ~/.ssh/id_rsa里的内容, 本地私有秘钥
+          private-key: |
+            -----BEGIN RSA PRIVATE KEY-----
+            MIIEpgIBAAKCAQEAudPbYad5gdoo6SB0N2lpAaJT8bCOE9VWbfJeWru3fx+ZUuq/
+            i1VQArbewK+AZvctVUUiJPaZtr1gBBkLJqW122Uu16ncu9xqYCWGny0htQhuRHp8
+            /r/Dno7mV5GUz7vNxyDqbdnIYfEDXQUqYTRNaQdbqc7/nuzTxsFZ3g7fE2S449S7
+            bVFHcaaTpfgbapF3s89ts3rJR+Xr8dNEd0djdW/x0c1psQqwtTuqvOF0bY+Xi9vH
+            sof7a7xabYPdUDxbM36iMswZnwUq9qdEzAX6efbQcKX3awhz4Bd4OMGSDMReHD8f
+            WPkE9yVnrFoPnfBUh6E57rQpIcl/AQjCNXVYwQIDAQABAoIBAQCTgxHLW16hLcT8
+            Cr82nX61xV5NpZGjPN73OEaeUBVB3JuhrqeOu5JgFTqOSsLq+ZwK7G5GWVt8LKhj
+            mF25uCG8n32nxTdsCXSIDkHnabQwORkPUwyWTTPEUjuXmAFBRhv7zq1Jtm/TD7dT
+            yB30O8iXbzfcfG1+gxE53ZKxK6z5fsiDx+Vgpf4/xiC7P/oP2tGu+MyBv5K22ToF
+            yQ0Z76uDJ+rVD6TN7sPeDetVFUjzW0LNVLj336t7cxEkQ3siqGpXiFcRUJkMYR6w
+            09dszDMZqiEOQtneVa4ZEzkufB1V+s7IZOAx3IczPiiVWg6/CZijFOVcuDfQ2WmU
+            vuclJrIBAoGBAOQxvUkpTY7p4et9JmQa4ll6/9QwAmMIKyJT7UoVkMuAtBhEY4bM
+            Q+XPNhptAOq3XsWYmqN/JVjmoOksAAF/0HVQsZTbJHVRcjn7ouVAf3taT5blgSXq
+            Eqk3O09Wmb+g9nth47NExflM3fnejUmfDU0sZqaXOB4PaTxfMACK0UWJAoGBANB4
+            iSuZqMotcKV5yuEom8gUTleuKa8VqrjF1xVVP/66ViMGafSy//GchAqRxgO+mCqF
+            lPYAUuk/ALCjogQshYA99eHLgw8KU09fJyHu8nqvjRyHTlluJSrCXOqO1ID2LTUv
+            VhDBRTpGseV168Yl0Y039/cgsseXqi2yxZrzC+N5AoGBANxOyRhhL+fSFbNs2Cu9
+            aNpKzcLltug1cq9pp6XmvCw8zaLAI/Z4LvUn4GwS4Ne6wVyzwFgo4L27q45yVG8e
+            HvukNE4qZEB/qXAhaVs7sdg9kKl2WgFowytrj29BhJ5loJHuKA9jTl8pvwUFwBJb
+            5FOlklUzmZIr/sWygH2FiBVBAoGBAMl08fm0UCywpL8EZ04W1BQRq3OH1rhfk89j
+            QGpZK7KZl0vZkuLpZ/Swb9lW7agIszvEQyNHRNgqDhykxJiL/abkOYyuAkSykbeO
+            GF7ublyo8RC0oL5Ddp9PnEL/K9REEYPn7p/aZW/fiWJZBjNBsLNrdrDWZG4E3muy
+            6srGPKLhAoGBALRTFLe7sK6/IN/hwCntQij67SZIIMK07qcLobsrHxj5T3pB9vQP
+            uCER5Azx04/9UeX+0NZkkQ6zhLjIWh7rtErq+NJp1ZW8QdjphNEgoP+Iv0BL+Ouw
+            q0mw/aZMLseQ6KmnuZ++HLiB9D6Kfg28SB0LzOvW5TXb3f6sCiA7jOQU
+            -----END RSA PRIVATE KEY-----
+    bus:
+      trace:
+        enabled: true
+
+  rabbitmq:
+    host: 39.108.9.18
+    username: yisen614
+    password: CAIyisen970718
+    port: 5672
+
+management:
+  endpoint:
+    bus-refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
