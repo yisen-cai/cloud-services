@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: top-yisen614-provider
+  cloud:
+    config:
+      uri: http://localhost:8888
