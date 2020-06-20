@@ -20,7 +20,7 @@
 
         <dependency>
             <groupId>top.yisen614</groupId>
-            <artifactId>cloud-commons</artifactId>
+            <artifactId>commons</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 

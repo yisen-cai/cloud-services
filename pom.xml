@@ -22,7 +22,7 @@
         <module>dubbo-consumer</module>
         <module>config-server</module>
         <module>dubbo-provider</module>
-        <module>cloud-commons</module>
+        <module>commons</module>
     </modules>
 
 

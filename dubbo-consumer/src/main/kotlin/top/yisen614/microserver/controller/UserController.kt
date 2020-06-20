@@ -4,8 +4,8 @@ import org.apache.dubbo.config.annotation.DubboReference
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import top.yisen614.cloudcommons.entity.UserEntity
-import top.yisen614.cloudcommons.service.UserService
+import top.yisen614.commons.entity.UserEntity
+import top.yisen614.commons.service.UserService
 
 
 @RestController

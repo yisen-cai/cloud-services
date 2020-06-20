@@ -1,4 +1,4 @@
-package top.yisen614.cloudcommons.entity
+package top.yisen614.commons.entity
 
 import org.hibernate.annotations.SQLDelete
 import org.hibernate.annotations.Where

@@ -1,4 +1,4 @@
-package top.yisen614.cloudcommons.entity
+package top.yisen614.commons.entity
 
 import java.io.Serializable
 import javax.persistence.Entity

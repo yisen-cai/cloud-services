@@ -10,8 +10,8 @@
     </parent>
 
 
-    <artifactId>cloud-commons</artifactId>
-    <name>cloud-commons</name>
+    <artifactId>commons</artifactId>
+    <name>commons</name>
     <packaging>jar</packaging>
     <description>Demo project for Spring Boot</description>
 
