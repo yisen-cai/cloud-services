@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  config-server:
+    image: config-server:1.0-SNAPSHOT
+    container_name: config-server
+    # 项目中运行
+    command: bash -c "mvn -pl config-server dockerfile:build"
+    ports:
+      - 8891:8891
+
+  dubbo-provider:
+    image: dubbo-provider:1.0-SNAPSHOT
+    container_name: dubbo-provider
+#    command: bash -c "mvn -pl dubbo-provider dockerfile:build"
+    # 依赖于config-server，后于config-server启动
+    depends_on:
+      - config-server
+
+  dubbo-consumer:
+    image: dubbo-consumer:1.0-SNAPSHOT
+    container_name: dubbo-consumer
+    # 运行docker命令
+#    command: bash -c "mvn -pl dubbo-consumer dockerfile:build"
+    # 暴露本地端口
+#    ports:
+#      - 8090:8090
+    # 可以以localhost方式访问
+    network_mode: host
+    depends_on:
+      - config-server
+      - dubbo-provider
+
+
+networks:
+  default:
+    # Use a custom driver
+    name: cloud-services
+    driver: bridge

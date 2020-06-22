@@ -1,4 +1,4 @@
-FROM openjdk:8-jre
+FROM openjdk:8-jdk-alpine
 MAINTAINER YISEN CAI <yisen614@gmail.com>
 
 ENTRYPOINT ["java", "-jar", "/usr/share/cloud-services/consumer.jar"]

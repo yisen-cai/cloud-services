@@ -148,6 +148,8 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <!-- skip docker build -->
+                    <skip>false</skip>
                     <!-- 定义生成的image repository -->
                     <repository>${project.artifactId}</repository>
                     <!-- 定义生成的image tag -->

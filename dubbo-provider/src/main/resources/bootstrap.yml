@@ -3,4 +3,4 @@ spring:
     name: top-yisen614-provider
   cloud:
     config:
-      uri: http://localhost:8891
+      uri: http://config-server:8891
