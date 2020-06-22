@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class MicroServerApplication
+class DubboConsumerApplication
 
 fun main(args: Array<String>) {
-    runApplication<MicroServerApplication>(*args)
+    runApplication<DubboConsumerApplication>(*args)
 }

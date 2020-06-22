@@ -13,9 +13,13 @@
         <java.version>1.8</java.version>
         <kotlin.version>1.3.72</kotlin.version>
         <dubbo.version>2.7.7</dubbo.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
         <spring-cloud.version>Hoxton.SR5</spring-cloud.version>
         <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
+        <dockerfile-maven-version>1.4.10</dockerfile-maven-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
@@ -92,6 +96,13 @@
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-extension</artifactId>
+                <version>${dockerfile-maven-version}</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
