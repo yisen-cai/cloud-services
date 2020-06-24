@@ -1,7 +1,7 @@
-FROM openjdk:8-jdk-alpine
+FROM registry.cn-beijing.aliyuncs.com/yisen614/openjdk:8-runtime
 MAINTAINER YISEN CAI <yisen614@gmail.com>
 
-ENTRYPOINT ["java", "-jar", "/usr/share/cloud-services/server.jar"]
+#ENTRYPOINT ["java", "-jar", "/usr/share/cloud-services/server.jar"]
 
 # Add Maven dependencies (not shaded into the artifact; Docker-cached)
 #ADD target/lib           /usr/share/myservice/lib
@@ -10,5 +10,3 @@ ENTRYPOINT ["java", "-jar", "/usr/share/cloud-services/server.jar"]
 ARG JAR_FILE
 
 ADD target/${JAR_FILE} /usr/share/cloud-services/server.jar
-
-CMD ["ls -la ", "/usr/share/cloud-services/"]

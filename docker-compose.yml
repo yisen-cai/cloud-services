@@ -5,14 +5,18 @@ services:
     image: config-server:1.0-SNAPSHOT
     container_name: config-server
     # 项目中运行
-    command: bash -c "mvn -pl config-server dockerfile:build"
+    volumes:
+      - ./:/mnt
+    command: ["java", "-jar", "/usr/share/cloud-services/server.jar"]
     ports:
       - 8891:8891
 
   dubbo-provider:
     image: dubbo-provider:1.0-SNAPSHOT
     container_name: dubbo-provider
-#    command: bash -c "mvn -pl dubbo-provider dockerfile:build"
+    volumes:
+      - ./:/mnt
+    command: ["./usr/share/wait-for-it.sh", "-t", "0", "config-server:8891", "--", "java", "-jar", "/usr/share/cloud-services/provider.jar"]
     # 依赖于config-server，后于config-server启动
     depends_on:
       - config-server
@@ -26,6 +30,9 @@ services:
 #    ports:
 #      - 8090:8090
     # 可以以localhost方式访问
+    volumes:
+      - ./:/mnt
+    command: ["./usr/share/wait-for-it.sh", "-t", "0", "config-server:8891", "--"]
     network_mode: host
     depends_on:
       - config-server
